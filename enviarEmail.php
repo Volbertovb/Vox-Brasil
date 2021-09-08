@@ -40,11 +40,15 @@ $headers .= "X-IP:  ".$_SERVER['REMOTE_ADDR']."\n";
 $headers .= "Return-Path:  <caluba@caluba>\n";
 $headers .= "MIME-Version: 1.0\n";
 
-if (mail($para, $assunto, $mensagem, $headers)){
-	header('Location: index.php');
-}else{
-	echo "erro";
-}
+$enviaremail = mail($para, $assunto, $mensagem, $headers);
+	
+if($enviaremail){
+
+  echo " <meta http-equiv='refresh' content='0;URL=index.php'>";
+  } else {
+  echo "ERRO AO ENVIAR E-MAIL!";
+  }
+	
 
 
 
